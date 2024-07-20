@@ -36,12 +36,9 @@ yarn-error.log
 /libpeerconnection.log
 testem.log
 /typings
-/environment.ts
-/environment.development.ts
 
 #Secret Keys
-environment.ts
-environment.development.ts
+src/environments/
 
 # System files
 .DS_Store
