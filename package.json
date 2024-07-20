@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "react-scripts build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:Weather-App": "node dist/weather-app/server/server.mjs"
