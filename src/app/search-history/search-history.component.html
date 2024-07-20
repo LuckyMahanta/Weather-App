@@ -1,0 +1,16 @@
+<div *ngIf="weatherHistory.length > 0" class="history-container p-4"
+  [@slideInOut]="weatherHistory.length > 0 ? 'in' : 'out' ">
+  <h3 class="mb-3 text-center">Search History</h3>
+  <div *ngFor="let historyItem of weatherHistory; let i = index" class="history-item mb-3 position-relative">
+    <button class="btn btn-remove position-absolute top-0 end-0 px-3" (click)="onRemove(i)" aria-label="Remove">
+      <i class="fa fa-times"></i>
+    </button>
+    <div class="history-details rounded-2 " (click)="onSelect(historyItem)">
+      <p class="fw-bold">{{ historyItem.city }}, {{ historyItem.country }}</p>
+      <p>Temperature: {{ historyItem.temperature }} °C</p>
+      <p>Description: {{ historyItem.description }}</p>
+      <p>Humidity: {{ historyItem.humidity }}%</p>
+      <p>Wind Speed: {{ historyItem.windSpeed }} Km/h</p>
+    </div>
+  </div>
+</div>

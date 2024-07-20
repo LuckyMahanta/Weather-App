@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+html, body {
+    height: 100%;
+    margin: 0;
+    background: url('./assets/clear-background.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+.cold-background {
+  background-image: url('/assets/cold-background.jpg');
+  background-size: cover;
+}
+
+.rainy-background {
+  background-image: url('/assets/rainy-background.jpg');
+  background-size: cover;
+}
+
+.clear-background {
+  background-image: url('/assets/clear-background.jpg');
+  background-size: cover;
+}
+
+.cloudy-background {
+  background-image: url('/assets/cloudy-background.jpg');
+  background-size: cover;
+}
+
+.mist-background {
+  background-image: url('/assets/mist-background.jpg');
+  background-size: cover;
+}
+
+.default-background {
+  background-image: url('/assets/default-background.jpg');
+  background-size: cover;
+}
