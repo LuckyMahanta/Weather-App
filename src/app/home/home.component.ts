@@ -94,7 +94,7 @@ export class HomeComponent implements OnInit, OnDestroy {
           this.weatherData = response;
           this.setAllData(response);
           this.updateSearchHistory(response, response.name);
-          this.cdr.detectChanges();
+          
           this.router.navigate(['/home', response.name.split(',')[0].trim()]);
         },
         error => {
@@ -113,7 +113,6 @@ export class HomeComponent implements OnInit, OnDestroy {
           this.setAllData(response);
           this.updateSearchHistory(response, cityName);
           this.router.navigate(['/home', cityName]);
-          this.cdr.detectChanges();
         },
         error => {
           console.log("Error fetching weather by city", error);
@@ -179,7 +178,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.weatherImageUrl = './assets/clear.png';
       this.isRainImage = false;
     }
-    this.cdr.detectChanges();
+    
   }
 
   setBackgroundClass(description: string, temperature: number) {
@@ -208,7 +207,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.weatherData = undefined;
     this.error = 'Oop! Location Not Found!';
     this.weatherImageUrl = './assets/404.png';
-    this.cdr.detectChanges();
+    
   }
 
   updateSearchHistory(response: WeatherData, cityName: string) {
@@ -278,14 +277,14 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   saveWeatherHistory() {
-    if (typeof window !== 'undefined' && typeof window.localStorage !== 'undefined') {
-      localStorage.setItem('weatherHistory', JSON.stringify(this.weatherHistory));
+    if (typeof window !== 'undefined' && typeof window.sessionStorage !== 'undefined') {
+      sessionStorage.setItem('weatherHistory', JSON.stringify(this.weatherHistory));
     }
   }
 
   loadWeatherHistory() {
-    if (typeof window !== 'undefined' && typeof window.localStorage !== 'undefined') {
-      const history = localStorage.getItem('weatherHistory');
+    if (typeof window !== 'undefined' && typeof window.sessionStorage !== 'undefined') {
+      const history = sessionStorage.getItem('weatherHistory');
       if (history) {
         this.weatherHistory = JSON.parse(history);
       }
@@ -294,8 +293,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   clearWeatherHistory() {
     this.weatherHistory = [];
-    if (typeof window !== 'undefined' && typeof window.localStorage !== 'undefined') {
-      localStorage.removeItem('weatherHistory');
+    if (typeof window !== 'undefined' && typeof window.sessionStorage !== 'undefined') {
+      sessionStorage.removeItem('weatherHistory');
     }
   }
 

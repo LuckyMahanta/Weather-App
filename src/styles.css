@@ -31,8 +31,3 @@ html, body {
   background-image: url('/assets/mist-background.jpg');
   background-size: cover;
 }
-
-.default-background {
-  background-image: url('/assets/default-background.jpg');
-  background-size: cover;
-}
