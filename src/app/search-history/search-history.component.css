@@ -1,3 +1,4 @@
+/* Base styles */
 .history-container {
     color: whitesmoke;
     transition: height 0.6s ease;
@@ -9,8 +10,6 @@
     background-color: rgba(0, 0, 0, 0.8);
     width: 100%;
     padding-top: 20px;
-
-    /* scrollbar  */
     scrollbar-width: thin;
     scrollbar-color: rgba(255, 255, 255, 0.4) rgba(0, 0, 0, 0.4);
 }
@@ -42,4 +41,24 @@
     cursor: pointer;
     position: absolute;
     z-index: 3;
+}
+
+/* Responsive styles for phone and tablet */
+@media (max-width: 768px) {
+    .history-container {
+        height: 33vh; 
+    }
+
+    .current-weather {
+        height: 67vh; 
+        overflow-y: auto;
+    }
+
+    .history-details p {
+        font-size: 0.8rem;
+    }
+
+    .btn-remove {
+        font-size: 0.8rem;
+    }
 }

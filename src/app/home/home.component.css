@@ -197,3 +197,94 @@
     margin-top: 12px;
     color: whitesmoke;
 }
+
+/* Responsive adjustments */
+@media (max-width: 992px) { 
+    .current-weather {
+        max-width: 100%;
+        min-height: 50vh; 
+    }
+}
+
+@media (max-width: 768px) { 
+    .current-weather {
+        min-height: 50vh; 
+        padding: 1rem; 
+    }
+
+    .search-box {
+        height: 40px;
+    }
+
+    .search-box input {
+        padding: 0.5rem;
+        font-size: 0.875rem; 
+    }
+
+    .search-box button {
+        padding: 0.5rem;
+        font-size: 0.875rem; 
+    }
+
+    .weather-box .temperature {
+        font-size: 48px; 
+    }
+
+    .weather-box .temperature span {
+        font-size: 18px; 
+    }
+
+    .weather-box .description {
+        font-size: 18px; 
+        padding-top: 20px;
+    }
+
+    .weather-details {
+        padding: 10px 0; 
+        font-size: 14px; 
+    }
+
+    .weather-details i {
+        font-size: 24px; 
+    }
+}
+
+@media (max-width: 500px) { 
+    .weather-box .temperature {
+        font-size: 36px;
+    }
+
+    .weather-box .temperature span {
+        font-size: 16px; 
+    }
+
+    .weather-box .description {
+        font-size: 16px;
+        padding-top: 10px;
+    }
+
+    .weather-details {
+        font-size: 12px; 
+    }
+
+    .weather-details i {
+        font-size: 20px; 
+    }
+}
+
+.search-box input {
+    padding: 0 60px 0 50px; 
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.weather img {
+    width: 50%;
+}
+
+.weather img.cold-image {
+    width: 30%;
+}
+
+.weather img.rain-image {
+    width: 40%;
+}

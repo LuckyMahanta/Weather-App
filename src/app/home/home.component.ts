@@ -152,52 +152,36 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.cityName = allWeather.name.split(',')[0].trim() || 'Unknown';
     this.description = allWeather.weather[0].description;
     this.country = allWeather.sys.country;
-    this.setWeatherImage(allWeather.weather[0].description, this.currentTemp);
-    this.setBackgroundClass(allWeather.weather[0].description, this.currentTemp);
+    this.setWeatherProperties(this.description, this.currentTemp);
     this.error = '';
   }
 
-  setWeatherImage(description: string, temperature: number) {
+  setWeatherProperties(description: string, temperature: number) {
     const trimmedDescription = description.toLowerCase();
-
+    let imageUrl = './assets/clear.png';
+    let backgroundClass = 'default-background';
+  
     if (temperature < 20) {
-      this.weatherImageUrl = './assets/cold.png';
+      imageUrl = './assets/cold.png';
+      backgroundClass = 'cold-background';
     } else if (trimmedDescription.includes('rain') || trimmedDescription.includes('drizzle')) {
-      this.weatherImageUrl = './assets/rain.png';
-      this.isRainImage = true;
+      imageUrl = './assets/rain.png';
+      backgroundClass = 'rainy-background';
     } else if (trimmedDescription.includes('clear')) {
-      this.weatherImageUrl = './assets/clear.png';
-      this.isRainImage = false;
+      imageUrl = './assets/clear.png';
+      backgroundClass = 'clear-background';
     } else if (trimmedDescription.includes('cloud')) {
-      this.weatherImageUrl = './assets/cloud.png';
-      this.isRainImage = false;
+      imageUrl = './assets/cloud.png';
+      backgroundClass = 'cloudy-background';
     } else if (trimmedDescription.includes('mist')) {
-      this.weatherImageUrl = './assets/mist.png';
-      this.isRainImage = false;
-    } else {
-      this.weatherImageUrl = './assets/clear.png';
-      this.isRainImage = false;
+      imageUrl = './assets/mist.png';
+      backgroundClass = 'mist-background';
     }
-    
+  
+    this.weatherImageUrl = imageUrl;
+    this.backgroundClass = backgroundClass;
   }
-
-  setBackgroundClass(description: string, temperature: number) {
-    const trimmedDescription = description.toLowerCase();
-    let newBackgroundClass = 'default-background';
-
-    if (temperature < 20) {
-      newBackgroundClass = 'cold-background';
-    } else if (trimmedDescription.includes('rain') || trimmedDescription.includes('drizzle')) {
-      newBackgroundClass = 'rainy-background';
-    } else if (trimmedDescription.includes('clear')) {
-      newBackgroundClass = 'clear-background';
-    } else if (trimmedDescription.includes('cloud')) {
-      newBackgroundClass = 'cloudy-background';
-    } else if (trimmedDescription.includes('mist')) {
-      newBackgroundClass = 'mist-background';
-    }
-    this.backgroundClass = newBackgroundClass;
-  }
+  
 
   kelvinToCelsius(temp: number): number {
     return Math.round(temp - 273.15);
